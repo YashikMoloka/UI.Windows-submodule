@@ -1,4 +1,4 @@
-﻿namespace UnityEngine.UI.Windows {
+namespace UnityEngine.UI.Windows {
 
     public class TemplateMarker : MonoBehaviour {
     }

@@ -292,7 +292,7 @@ namespace UnityEngine.UI.Windows {
 
         internal static WindowSystem _instance;
 
-        internal static WindowSystem instance {
+        public static WindowSystem instance {
             get {
 
                 #if UNITY_EDITOR
@@ -364,22 +364,12 @@ namespace UnityEngine.UI.Windows {
         }
         
         public void Awake() {
-
-            this.Run();
-
-        }
-
-        public void OnEnable() {
-            
-            this.Run();
-            
-        }
-
-        private void Run() {
         
-            if (WindowSystem._instance != null) return;
             WindowSystem._instance = this;
-            GameObject.DontDestroyOnLoad(this.gameObject);
+        
+        }
+
+        public void Run() {
 
             this.events.Initialize();
             this.breadcrumbs.Initialize();
@@ -396,11 +386,7 @@ namespace UnityEngine.UI.Windows {
                 this.hashToPrefabs.Add(key, item);
 
             }
-
-        }
-
-        public void Start() {
-
+            
             if (this.modules != null) {
 
                 for (int i = 0; i < this.modules.Count; ++i) {

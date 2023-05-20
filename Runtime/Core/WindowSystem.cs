@@ -46,7 +46,7 @@ namespace UnityEngine.UI.Windows {
     public enum DontDestroy {
 
         Default = 0x0,
-        Ever = -1,
+        // Ever = -1,
         
         OnHideAll = 0x1,
 
@@ -379,7 +379,7 @@ namespace UnityEngine.UI.Windows {
                 var key = item.GetType().GetHashCode();
                 if (this.hashToPrefabs.ContainsKey(key) == true) {
                     
-                    Debug.LogWarning($"Window with hash `{key}` already exists in windows hash map!");
+                    Debug.LogWarning($"Window `{item.GetType().Name}` with hash `{key}` already exists in windows hash map!");
                     continue;
                     
                 }
@@ -1728,7 +1728,7 @@ namespace UnityEngine.UI.Windows {
             instance.name = "[" + instance.identifier.ToString("00") + "] " + source.name;
             #endif
             instance.SetInitialParameters(initialParameters);
-            GameObject.DontDestroyOnLoad(instance.gameObject);
+            // GameObject.DontDestroyOnLoad(instance.gameObject);
 
             if (instance.preferences.showInSequence == true) {
 
@@ -1767,7 +1767,7 @@ namespace UnityEngine.UI.Windows {
             }
             this.currentWindows.Add(item);
 
-            GameObject.DontDestroyOnLoad(instance.gameObject);
+            // GameObject.DontDestroyOnLoad(instance.gameObject);
 
             { // Setup for each instance
 

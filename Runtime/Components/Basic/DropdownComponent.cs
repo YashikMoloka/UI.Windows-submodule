@@ -80,6 +80,12 @@ namespace UnityEngine.UI.Windows.Components {
                 
             }
 
+            for (int i = 0; i < this.list.items.Count; i++)
+            {
+                var item = this.list.items[i];
+                TrySetCallbackToInteractable(item, i, null);
+            }
+
         }
 
         internal override void OnDeInitInternal() {

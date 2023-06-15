@@ -9,6 +9,16 @@ namespace UnityEngine.UI.Windows {
 
         private CheckboxComponent currentSelected;
 
+        public override void OnInit()
+        {
+            foreach (var windowComponent in listComponent.items)
+            {
+                if (windowComponent is CheckboxComponent checkbox) {
+                    checkbox.SetGroup(this);
+                }
+            }
+        }
+
         public override void OnComponentAdded(WindowComponent windowComponent) {
             base.OnComponentAdded(windowComponent);
             if (windowComponent is CheckboxComponent checkbox) {
